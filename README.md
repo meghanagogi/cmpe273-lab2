@@ -19,7 +19,8 @@ node index.js
 * GET
 ```sh
 curl -i http://localhost:8000/ -X GET
-```
+
+
 
 * GET with setting **Cookies** in the request header.
 ```sh

@@ -41,7 +41,15 @@ function post(request, response) {
 	// TODO: set new session id to the 'session_id' cookie in the response
 	// replace "Logged In" response with response.end(login.hello(newSessionId));
 
-	response.end("Logged In\n");
+	name=request.body.name;
+	email=request.body.email;
+	
+	var newSessionId = login.login(name,email);
+	//var nsid = cookies['newSessionId'];
+
+	response.setHeader('Set-Cookie','session_id=' + newSessionId);
+	//response.end("Logged In\n");
+	response.end(login.hello(newSessionId));
 };
 
 function del(request, response) {
